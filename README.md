@@ -12,7 +12,7 @@ This app uses two different APIs.  It pulls from Eventbrite API to select an eve
 
 ## Link to Deployed App
 
-https://panzemek.github.io/On-The-Town/
+https://anthonyme0328.github.io/On-The-Town-AME/.
 
 ## Technologies Used
 
