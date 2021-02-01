@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Date Nite Roulette</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Cuprum" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <!-- Google font from Katie-->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet"> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+
+</head>
+
+<body>
+   
+    <!-- Header elements -->
+    <canvas id="canvas-image-blending"></canvas>
+    <div id="headerBox" class="flex-container">   
+        <h1 id="title-text">Date Nite Roulette</h1>
+    </div>
+    <div class="flex-container all-content-center">
+        <div class="flex-container all-content-width">
+            <div id="header" class="flex-container">
+                <!-- Header container for when and where selection -->
+                <div id="when-where-content" class="flex-container">
+                    <!-- Header element for list of days selection -->
+                    <div id="day-list" class="flex-container">
+                        <div class="flex-container when-container">
+                            <div id="datepicker" class="day-box flex-container calendar-pop-button">
+                                <div class="day-text flex-container calendar-pop-button">
+                                    <i class="fas fa-calendar-alt calendar-pop-button"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Header element for event location selection -->
+                    <div class="flex-container where-container" id="whereBox">
+                        <div id="select-where-text" class="flex-container select-whenwhere-text">
+                           <p>Where's your night?</p>
+                        </div>
+                        <div class="dropdown flex-container city-dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Select location
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownItems">
+                              <!-- <a class="dropdown-item" href="#">City, State</a> -->
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            <!-- </div> -->
+            </div>
+        
+       
+            <!-- Whole roulette results container -->
+            <div id="roulette-elements-container" class="flex-container">
+
+                <!-- Event results element -->
+                <div id="event-container" class="flex-container roulette-container">
+                    <!-- Event carousel -->
+                    <div id="event-roulette" class="flex-container">
+                        <div class="carousel">
+                            <div id="eventCarousel" class="carousel slide" data-interval="50">
+                                <div class="carousel-inner flex-container">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="assets/images/events/concert2.jpg" class="d-block w-100">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/images/events/hike2.jpg" class="d-block w-100">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/images/events/movie2.jpg" class="d-block w-100">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/images/events/performance2.jpg" class="d-block w-100">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/images/events/yoga2.jpg" class="d-block w-100">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/images/events/kayak2.jpg" class="d-block w-100">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/images/events/football2.jpg" class="d-block w-100">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/images/events/ballet2.jpg" class="d-block w-100">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Element for event results to display in -->
+                    <div id="event-result">
+
+                    </div>
+                </div>
+
+                <!-- Food results element -->
+                <div id="food-container" class="flex-container roulette-container">
+                    <!-- Food carousel -->
+                    <div id="food-roulette" class="flex-container">
+                        <div class="carousel">
+                            <div id="restaurantCarousel" class="carousel slide" data-interval="50">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="assets/images/restaurants/salad2.jpg" class="d-block w-100">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="assets/images/restaurants/american.jpg" class="d-block w-100">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="assets/images/restaurants/breakfast2.jpg" class="d-block w-100">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="assets/images/restaurants/mexican2.jpg" class="d-block w-100">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="assets/images/restaurants/thai.jpg" class="d-block w-100">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="assets/images/restaurants/vietnamese.jpg" class="d-block w-100">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="assets/images/restaurants/avocado.jpg" class="d-block w-100">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="assets/images/restaurants/indian.jpg" class="d-block w-100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Element for the food results to display -->
+                    <div id="food-result">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Container for event and food randomizer buttons -->
+            <div class="flex-container column-centered-container">
+                <div class="roulette-button-div">
+                    <button id="event-roulette-button" type="button" class="btn roulette-button">Let's Make a Date</button>
+                </div>
+
+                <div class="roulette-button-div">
+                    <button id="food-roulette-button" type="button" class="btn roulette-button">Find Other Food</button>
+                </div>
+            </div>
+
+            <!-- Container for Narrow Down options text -->
+            <div class="flex-container column-centered-container">
+                <div id="narrow-event" class="narrow-text-div">
+                    <p>Narrow it down</p>
+                </div>
+
+                <div id="narrow-food" class="narrow-text-div">
+                    <p>Narrow it down</p>
+                </div>
+
+            </div>
+
+            <div id="narrow-down-container" class="flex-container">
+
+                <div id="event-narrow-container" class="flex-container narrow-container">
+                    <!-- hide when not active -->
+                    <form id="event-narrow-list" class="flex-container" value="active">
+
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="103" id="music">
+                            <label class="form-check-label" for="music">
+                                Music
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="110" id="fooddrink">
+                            <label class="form-check-label" for="fooddrink">
+                                Food & Drink
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="113" id="communityculture">
+                            <label class="form-check-label" for="fooddrink">
+                                Community & Culture </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="105" id="performancevisualarts">
+                            <label class="form-check-label" for="performancevisualarts">
+                                Performance & Visual Arts
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="104" id="filmmedia">
+                            <label class="form-check-label" for="filmmedia">
+                                Film & Media
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="108" id="sportsfitness">
+                            <label class="form-check-label" for="sportsfitness">
+                                Sports & Fitness
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="107" id="healthwellness">
+                            <label class="form-check-label" for="healthwellness">
+                                Health & Wellness </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="102" id="sciencetechnology">
+                            <label class="form-check-label" for="sciencetechnology">
+                                Science & Technology
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="109" id="traveloutdoor">
+                            <label class="form-check-label" for="traveloutdoor">
+                                Travel & Outdoors
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="111" id="charitycauses">
+                            <label class="form-check-label" for="charitycauses">
+                                Charity & Causes
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="115" id="familyeducation">
+                            <label class="form-check-label" for="familyeducation">
+                                Family & Education
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="116" id="seasonalholiday">
+                            <label class="form-check-label" for="seasonalholiday">
+                                Seasonal & Holiday
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="112" id="governmentpolitics">
+                            <label class="form-check-label" for="governmentpolitics">
+                                Government & Politics
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="106" id="fashionbeauty">
+                            <label class="form-check-label" for="fashionbeauty">
+                                Fashion & Beauty
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="117" id="homelifestyle">
+                            <label class="form-check-label" for="homelifestyle">
+                                Home & Lifestyle
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="118" id="autoboatair">
+                            <label class="form-check-label" for="autoboatair">
+                                Auto, Boat, & Air
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="119" id="hobbiesspecialinterests">
+                            <label class="form-check-label" for="hobbiesspecialinterests">
+                                Hobbies & Special Interests
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="120" id="schoolactivities">
+                            <label class="form-check-label" for="schoolactivities">
+                                School Activities
+                            </label>
+                        </div>
+                        <div class="form-check flex-container">
+                            <input class="form-check-input" type="checkbox" name="eventListItem[]" value="199" id="oddballevents">
+                            <label class="form-check-label" for="oddballevents">
+                                Oddball Events
+                            </label>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="food-narrow-container" class="flex-container narrow-container">
+
+                    <!-- hide when not active -->
+                    <form id="food-narrow-list" class="flex-container" value="active">
+                        <!-- Generate dynamically via API call? -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cuisineListItem[]" value="American" id="American">
+                            <label class="form-check-label" for="American">
+                                American
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cuisineListItem[]" value="Italian" id="Italian">
+                            <label class="form-check-label" for="Italian">
+                                Italian
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cuisineListItem[]" value="Chinese" id="Chinese">
+                            <label class="form-check-label" for="Chinese">
+                                Chinese
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cuisineListItem[]" value="Japanese" id="Japanese">
+                            <label class="form-check-label" for="Japanese">
+                                Japanese
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cuisineListItem[]" value="Thai" id="Thai">
+                            <label class="form-check-label" for="Thai">
+                                Thai
+                            </label>
+                        </div>                        
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cuisineListItem[]" value="Vietnamese" id="Vietnamese">
+                            <label class="form-check-label" for="Vietnamese">
+                                Vietnamese
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cuisineListItem[]" value="Mediterranean" id="Mediterranean">
+                            <label class="form-check-label" for="Mediterranean">
+                                Mediterranean
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cuisineListItem[]" value="Mexican" id="Mexican">
+                            <label class="form-check-label" for="Mexican">
+                                Mexican
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cuisineListItem[]" value="African" id="African">
+                            <label class="form-check-label" for="African">
+                                African
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cuisineListItem[]" value="Indian" id="Indian">
+                            <label class="form-check-label" for="Indian">
+                                Indian
+                            </label>
+                        </div>
+                        <!-- Generate dynamically via API call? -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+    <script src="assets/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="assets/javascript/granim.min.js"></script>
+    <script src="assets/javascript/script.js"></script>
+</body>
+
+</html>
